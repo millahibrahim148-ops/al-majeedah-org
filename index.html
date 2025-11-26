@@ -2,188 +2,303 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Al-Majeedah Library</title>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <title>Al-Majeedah - Library</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      margin:0;
-      font-family: "Amiri", serif;
-      background-color:#f8f5f0;
-      color:#3a3a3a;
-      line-height:1.8;
+      font-family: "Cormorant Garamond", serif;
+      background: #fdfbf6;
+      color: #2f2f2f;
+      line-height: 1.6;
     }
 
-    /* HEADER (restored classic layout) */
+    /* Header */
     header {
-      text-align:center;
-      padding:35px;
-      background:linear-gradient(to bottom, #1a3b24 0%, #265231 100%);
-      color:#fff;
+      text-align: center;
+      padding: 35px 20px;
+      background: linear-gradient(180deg, #fdfbf6, #f2e9d8);
+      border-bottom: 1px solid #c8b48c;
+      box-shadow: inset 0 2px 6px rgba(255,255,255,0.7), 0 3px 10px rgba(0,0,0,0.15);
     }
-
     header img {
-      width:100%;
-      max-width:850px;
-      height:auto;
-      border-radius:6px;
-      margin-bottom:20px;
+      max-width: 320px;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 12px;
     }
-
     header h1 {
-      margin:14px 0 0 0;
-      font-size:48px;
-      font-weight:400;
+      font-family: "Amiri", serif;
+      font-size: 42px;
+      font-weight: 400;
+      color: #3a2b1a;
     }
-
     header p {
-      font-size:20px;
-      opacity:.9;
-      margin-top:8px;
+      font-size: 16px;
+      color: #5c4b36;
+      margin-top: 8px;
     }
 
-    /* LAYOUT */
+    /* Layout */
     .container {
-      display:flex;
-      max-width:1200px;
-      margin:30px auto;
-      gap:22px;
-      padding:0 20px;
+      display: flex;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+      gap: 24px;
     }
 
-    /* SIDEBAR */
+    /* Sidebar */
     aside {
-      width:250px;
-      background:#fffffc;
-      padding:18px;
-      border:1px solid #dcd6cc;
-      border-radius:6px;
+      width: 260px;
+      background: linear-gradient(180deg, #fbf7ef, #f3e9d6);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      height: fit-content;
+    }
+    aside h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #4b3621;
+      border-bottom: 1px solid #d9c7a4;
+      padding-bottom: 5px;
+      font-family: "Amiri", serif;
+    }
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-links a {
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      background: linear-gradient(180deg, #fdfbf6, #efe3cd);
+      border: 1px solid #d9c7a4;
+      border-radius: 8px;
+      color: #3a2b1a;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .sidebar-links a:hover {
+      background: #f7e8c9;
+      transform: translateX(3px);
     }
 
-    aside h3 { font-size:22px; margin-bottom:14px; }
-    aside a {
-      display:block;
-      padding:7px 4px;
-      text-decoration:none;
-      color:#1b3a28;
-      margin-bottom:4px;
-      transition:.2s;
-    }
-
-    aside a:hover {
-      background:#e4eee6;
-      padding-left:10px;
-    }
-
-    /* MAIN CONTENT */
+    /* Main Content */
     main {
-      flex:1;
-      background:#fff;
-      padding:26px;
-      border-radius:6px;
-      border:1px solid #ded7cd;
+      flex: 1;
+      background: #fffdf9;
+      padding: 20px;
+      border: 1px solid #e4d8c2;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .library-section { margin-bottom: 30px; }
+    .library-section h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #4b3621;
+      border-bottom: 1px solid #d9c7a4;
+      padding-bottom: 5px;
+      font-family: "Amiri", serif;
+      cursor: pointer;
+    }
+    .toggle-btn {
+      font-size: 14px;
+      margin-left: 8px;
+      color: #6b5a45;
+      cursor: pointer;
     }
 
-    h2 {
-      border-bottom:2px solid #d5c8b8;
-      padding-bottom:6px;
-      margin-bottom:22px;
-      font-size:26px;
-      color:#1b3a28;
+    .library-links .rec-item { position: relative; }
+    .library-links a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      background: linear-gradient(180deg, #fdfbf6, #efe3cd);
+      border: 1px solid #d9c7a4;
+      border-radius: 8px;
+      color: #3a2b1a;
+      text-decoration: none;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .library-links a img { width: 18px; height: 18px; }
+
+    .library-links a:hover {
+      background: #f7e8c9;
+      transform: translateX(3px);
     }
 
-    h3 { display:flex; justify-content:space-between; cursor:pointer; }
-
-    .toggle-btn { font-size:18px; }
-
-    .library-links.hidden { display:none; }
-
-    .rec-item {
-      background:#fbfaf9;
-      padding:12px;
-      border-left:4px solid #1b3a28;
-      margin-top:12px;
-      border-radius:4px;
+    /* Tooltip */
+    .tooltip {
+      position: absolute;
+      top: 110%;
+      left: 0;
+      background: #fffdf9;
+      border: 1px solid #d9c7a4;
+      border-radius: 8px;
+      padding: 10px;
+      width: 260px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 14px;
+      color: #3a2b1a;
+      display: none;
+      z-index: 10;
     }
+    .tooltip h4 {
+      margin-bottom: 6px;
+      font-family: "Amiri", serif;
+      font-size: 16px;
+    }
+    .rec-item:hover .tooltip { display: block; }
 
-    .book-toggle { font-weight:bold; cursor:pointer; }
+    /* Dropdowns */
+    .dropdown { display: none; margin-left: 15px; margin-top: 6px; }
+    .dropdown a {
+      font-size: 14px;
+      padding: 6px 10px;
+      background: #fdfbf6;
+      border: 1px solid #e4d8c2;
+      border-radius: 6px;
+      margin-bottom: 4px;
+    }
+    .dropdown a img { width: 16px; height: 16px; }
 
-    .dropdown { display:none; margin-top:10px; margin-left:10px; }
-
-    .dropdown a { display:block; margin:5px 0; color:#333; }
-
-    .lesson-toggle { cursor:pointer; font-weight:bold; }
-
-    .nested-dropdown { display:none; margin-left:14px; border-left:2px dashed #999; padding-left:8px; }
+    .nested-dropdown { display: none; margin-top: 6px; }
+    .lesson-group {
+      border-left: 3px solid #d9c7a4;
+      margin-left: 12px;
+      padding-left: 12px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
 
     footer {
-      text-align:center;
-      padding:16px;
-      background:#1b3a28;
-      color:#fff;
-      margin-top:50px;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #d9c7a4;
+      background: linear-gradient(180deg, #fdfbf6, #f2e9d8);
+      margin-top: 40px;
+      font-size: 14px;
+      color: #6b5a45;
     }
+
+    .hidden { display: none; }
   </style>
 </head>
+
 <body>
 
-<header>
-  <!-- Restored theme with banner visible above text -->
-  <img src="https://raw.githubusercontent.com/millahibrahim148-ops/al-majeedah-org/d991a511f7d44c29627b0d73541ad21ecf28c2ac/icon%2C%20images%20%26%20misc/banner.png">
-  <h1>Al-Majeedah</h1>
-  <p>Library of Beneficial Knowledge</p>
-</header>
+  <!-- HEADER -->
+  <header>
+    <img src="https://github.com/millahibrahim148-ops/al-majeedah-org/blob/d991a511f7d44c29627b0d73541ad21ecf28c2ac/icon%2C%20images%20%26%20misc/banner.png?raw=true" alt="Al-Majeedah Banner">
+    <h1>Al-Majeedah</h1>
+    <p>Library of Beneficial Knowledge</p>
+  </header>
 
-<div class="container">
+  <!-- PAGE WRAPPER -->
+  <div class="container">
 
-  <aside>
-    <h3>Navigation</h3>
-    <a href="index.html">Home</a>
-    <a href="library.html">Library</a>
-    <a href="articles.html">Articles</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="audio.html">Audio / Lessons</a>
-  </aside>
+    <!-- SIDEBAR -->
+    <aside>
+      <h3>Navigation</h3>
+      <div class="sidebar-links">
+        <a href="index.html">Home</a>
+        <a href="library.html">Library</a>
+        <a href="article.html">Articles</a>
+        <a href="#">Audio</a>
+        <a href="#">About</a>
+      </div>
+    </aside>
 
-  <main>
-    <h2>Library</h2>
+    <!-- MAIN CONTENT -->
+    <main>
+      <div class="library-section">
+        <h3>Beginner <span class="toggle-btn">[+]</span></h3>
 
-    <div class="library-section">
-      <h3>Beginner <span class="toggle-btn">[+]</span></h3>
-      <div class="library-links hidden">
+        <div class="library-links hidden">
 
-        <div class="rec-item">
-          <a class="book-toggle">Sample Book Title</a>
-          <div class="dropdown">
-            <a>PDF Version</a>
-            <a>Audio Explanation</a>
+          <!-- Example Book -->
+          <div class="rec-item">
+            <a class="book-toggle" href="javascript:void(0)">
+              Hilyaatu thaalib al-ʿIlm
+              <img class="folder-icon" src="https://freesvg.org/img/Folder-1.png" alt="folder">
+            </a>
 
-            <a class="lesson-toggle">Lessons</a>
-            <div class="nested-dropdown">
-              Notes / Playlist / Materials here
+            <div class="tooltip">
+              <h4>Hilyaatu thaalib al-ʿIlm</h4>
+              <p>A classical text on the etiquettes of seeking knowledge.</p>
+            </div>
+
+            <div class="dropdown">
+              <a href="#">(English Book)</a>
+              <a href="#">(Arabic Book)</a>
+              <a href="#">Explanation</a>
+              <a class="lesson-toggle" href="javascript:void(0)">Lessons</a>
+
+              <div class="nested-dropdown">
+                <div class="lesson-group">
+                  <p>Commentary Lessons:</p>
+                  <a href="#">Lesson 1</a>
+                  <a href="#">Lesson 2</a>
+                  <a href="#">Lesson 3</a>
+                </div>
+              </div>
+
+              <a href="#">Notes & Summary</a>
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
+    </main>
+  </div>
 
-  </main>
-</div>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Al-Majeedah. All rights reserved.</p>
+  </footer>
 
-<footer>© Al-Majeedah — All Rights Reserved</footer>
+  <!-- SCRIPT -->
+  <script>
+    // Toggle category dropdown
+    document.querySelectorAll(".library-section h3").forEach(section=>{
+      section.addEventListener("click",()=>{
+        let box=section.nextElementSibling;
+        let btn=section.querySelector(".toggle-btn");
+        box.classList.toggle("hidden");
+        btn.textContent=box.classList.contains("hidden")?"[+]":"[-]";
+      });
+    });
 
-<script>
-document.querySelectorAll(".library-section h3").forEach(h=>{
-  const l=h.nextElementSibling,btn=h.querySelector(".toggle-btn");
-  h.onclick=()=>{l.classList.toggle("hidden");btn.textContent=btn.textContent=="[+]"?"[-]":"[+]";}
-});
-document.querySelectorAll(".book-toggle").forEach(b=>{
-  b.onclick=()=>{const d=b.nextElementSibling;d.style.display=d.style.display=="block"?"none":"block";}
-});
-document.querySelectorAll(".lesson-toggle").forEach(t=>{
-  t.onclick=()=>{const n=t.nextElementSibling;n.style.display=n.style.display=="block"?"none":"block";}
-});
-</script>
+    // Toggle book folders
+    document.querySelectorAll(".book-toggle").forEach(book=>{
+      book.addEventListener("click",()=>{
+        let drop=book.parentElement.querySelector(".dropdown");
+        let icon=book.querySelector(".folder-icon");
+        drop.style.display=(drop.style.display==="block")?"none":"block";
+        icon.src=(drop.style.display==="block")
+        ?"https://github.com/millahibrahim148-ops/almaymunah/blob/b3d8fd8fa42a8048e3e7d7ada54f9a52fda34fd4/icon%20image/Open-Folder-icon.png?raw=true"
+        :"https://freesvg.org/img/Folder-1.png";
+      });
+    });
+
+    // Toggle nested lessons
+    document.querySelectorAll(".lesson-toggle").forEach(lesson=>{
+      lesson.addEventListener("click",()=>{
+        let box=lesson.nextElementSibling;
+        box.style.display=(box.style.display==="block")?"none":"block";
+      });
+    });
+  </script>
 
 </body>
 </html>
