@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Fatwa Library</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+
+<style>
+/* —— Global Reset —— */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+/* —— Page Style —— */
+body{
+    font-family:"Cormorant Garamond",serif;
+    background:#fdfbf6;
+    color:#2f2f2f;
+    line-height:1.6;
+}
+
+/* —— Header —— */
+header{
+    text-align:center;
+    padding:35px 20px;
+    background:linear-gradient(180deg,#fdfbf6,#f2e9d8);
+    border-bottom:1px solid #c8b48c;
+    box-shadow:inset 0 2px 6px rgba(255,255,255,.7), 0 3px 10px rgba(0,0,0,.15);
+}
+header img{
+    max-width:320px;
+    border-radius:8px;
+    margin-bottom:12px;
+}
+header h1{
+    font-family:"Amiri",serif;
+    font-size:42px;
+    font-weight:400;
+    color:#3a2b1a;
+}
+header p{
+    font-size:16px;
+    color:#5c4b36;
+    margin-top:8px;
+}
+
+/* —— Layout —— */
+.container{
+    display:flex;
+    max-width:1100px;
+    margin:30px auto;
+    gap:24px;
+    padding:0 20px;
+}
+
+/* —— Sidebar —— */
+aside{
+    width:260px;
+    background:linear-gradient(180deg,#fbf7ef,#f3e9d6);
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+    height:fit-content;
+}
+aside h3{
+    font-size:18px;
+    color:#4b3621;
+    margin-bottom:12px;
+    padding-bottom:5px;
+    border-bottom:1px solid #d9c7a4;
+    font-family:"Amiri",serif;
+}
+.sidebar-links{
+    display:flex;
+    flex-direction:column;
+}
+.sidebar-links a{
+    padding:10px 12px;
+    margin-bottom:6px;
+    background:linear-gradient(180deg,#fdfbf6,#efe3cd);
+    border:1px solid #d9c7a4;
+    border-radius:8px;
+    color:#3a2b1a;
+    text-decoration:none;
+    font-size:15px;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    transition:.2s;
+}
+.sidebar-links a:hover{
+    background:#f7e8c9;
+    transform:translateX(3px);
+}
+
+/* —— Main Content —— */
+main{
+    flex:1;
+    background:#fffdf9;
+    padding:20px;
+    border:1px solid #e4d8c2;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+/* —— Section Header —— */
+.library-section{margin-bottom:30px;}
+.library-section h3{
+    font-size:20px;
+    margin-bottom:12px;
+    border-bottom:1px solid #d9c7a4;
+    padding-bottom:6px;
+    color:#4b3621;
+    font-family:"Amiri",serif;
+    cursor:pointer;
+}
+.toggle-btn{
+    font-size:14px;
+    margin-right:8px;
+    color:#6b5a45;
+}
+
+/* —— Dropdown Items —— */
+.library-links .rec-item{position:relative;margin-bottom:10px;}
+.library-links a{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 12px;
+    background:linear-gradient(180deg,#fdfbf6,#efe3cd);
+    border:1px solid #d9c7a4;
+    border-radius:8px;
+    margin-bottom:8px;
+    font-size:15px;
+    color:#3a2b1a;
+    text-decoration:none;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6);
+    transition:.2s;
+}
+.library-links a:hover{background:#f7e8c9;transform:translateX(3px);}
+.library-links a img{width:18px;height:18px;}
+
+/* Tooltip */
+.tooltip{
+    position:absolute;
+    top:110%;left:0;
+    width:260px;
+    background:#fffdf9;
+    border:1px solid #d9c7a4;
+    border-radius:8px;
+    padding:10px;
+    font-size:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    color:#3a2b1a;
+    display:none;
+}
+.tooltip h4{margin-bottom:6px;font-family:"Amiri";font-size:16px;}
+.rec-item:hover .tooltip{display:block}
+
+/* Nested */
+.dropdown{display:none;margin-right:15px;margin-top:6px;}
+.dropdown a{padding:6px 10px;font-size:14px;border-radius:6px;margin-bottom:4px;}
+.nested-dropdown{display:none;margin-top:6px;}
+.lesson-group{
+    border-right:3px solid #d9c7a4;
+    margin-right:12px;padding-right:12px;
+    margin-top:8px;margin-bottom:8px;
+}
+.lesson-group p{
+    margin:6px 0;
+    font-weight:bold;font-size:14px;color:#4b3621;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #d9c7a4;
+    background:linear-gradient(180deg,#fdfbf6,#f2e9d8);
+    margin-top:40px;font-size:14px;
+    color:#6b5a45;
+    box-shadow:inset 0 2px 6px rgba(255,255,255,.6);
+}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+    <img src="banner.png">
+    <h1>Fatwa Library</h1>
+    <p>Knowledge & Beneficial Texts</p>
+</header>
+
+<div class="container">
+    <aside>
+        <h3>Navigation</h3>
+        <div class="sidebar-links">
+            <a href="index.html">Home</a>
+            <a href="library.html">Library</a>
+            <a href="#">Books</a>
+            <a href="#">Lessons</a>
+            <a href="#">About</a>
+        </div>
+    </aside>
+
+    <main>
+        <!-- Duplicate this block for more categories -->
+        <div class="library-section">
+            <h3>Beginners <span class="toggle-btn">[+]</span></h3>
+
+            <div class="library-links hidden">
+
+                <!-- Example Item -->
+                <div class="rec-item">
+                    <a class="book-toggle">
+                        Example Book
+                        <img class="folder-icon" src="https://freesvg.org/img/Folder-1.png">
+                    </a>
+
+                    <div class="tooltip">
+                        <h4>About This Book</h4>
+                        <p>Description text goes here...</p>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#">Open PDF</a>
+                        <a class="lesson-toggle">Lessons <img src="https://freesvg.org/img/1415799000.png"></a>
+
+                        <div class="nested-dropdown">
+                            <div class="lesson-group">
+                                <p>Instructor Name</p>
+                                <a href="#">Lesson 1</a>
+                                <a href="#">Lesson 2</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<footer>© 2025 Fatwa Library</footer>
+
+<script>
+// Category toggle
+document.querySelectorAll(".library-section h3").forEach(sec=>{
+    sec.onclick=()=>{
+        let box=sec.nextElementSibling,btn=sec.querySelector(".toggle-btn");
+        box.classList.toggle("hidden");
+        btn.textContent = box.classList.contains("hidden")? "[+]":"[-]";
+    };
+});
+// Book dropdown
+document.querySelectorAll(".book-toggle").forEach(book=>{
+    book.onclick=()=>{
+        let drop=book.parentElement.querySelector(".dropdown"),
+            icon=book.querySelector(".folder-icon");
+        drop.style.display = drop.style.display=="block"?"none":"block";
+        icon.src = drop.style.display=="block"
+            ?"https://github.com/millahibrahim148-ops/almaymunah/blob/b3d8fd8fa42a8048e3e7d7ada54f9a52fda34fd4/icon%20image/Open-Folder-icon.png?raw=true"
+            :"https://freesvg.org/img/Folder-1.png";
+    };
+});
+// Nested dropdown
+document.querySelectorAll(".lesson-toggle").forEach(b=>{
+    b.onclick=()=>{
+        let drop=b.closest(".dropdown").querySelector(".nested-dropdown"),
+            icon=b.querySelector("img");
+        drop.style.display = drop.style.display=="block"?"none":"block";
+        icon.src = drop.style.display=="block"
+            ?"https://github.com/millahibrahim148-ops/almaymunah/blob/b3d8fd8fa42a8048e3e7d7ada54f9a52fda34fd4/icon%20image/Open-Folder-icon.png?raw=true"
+            :"https://freesvg.org/img/Folder-1.png";
+    }
+});
+</script>
+</body>
+</html>
