@@ -2,139 +2,232 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>الفتاوى – الموقع الرسمي</title>
+<title>المجيدة | Al-Majeedah</title>
 
+<!-- your original CSS unchanged: -->
 <style>
-    body {
-        background:#f5edd8; 
-        font-family: "Amiri", serif;
-        color:#3a2f19;
-        line-height:1.9;
-        margin:0;
-    }
+/* General */
+body {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  background: #faf9f5;
+  color: #222;
+  line-height: 1.6;
+}
 
-    /* HEADER + BANNER */
-    header {
-        background:#f3e9d6;
-        padding:8px;
-        border-bottom:4px solid #b9913b;
-        box-shadow:inset 0 0 10px rgba(0,0,0,0.15);
-        text-align:center;
-    }
-    header img {
-        width:100%;
-        border:3px solid #d5ba74;
-        box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    }
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #0f3d2e;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
 
-    /* LAYOUT STRUCTURE */
-    .wrapper {
-        display:flex;
-        max-width:1200px;
-        margin:25px auto;
-        gap:25px;
-    }
+.site-logo {
+  height: 90px;
+  image-rendering: crisp-edges;
+  object-fit: contain;
+}
 
-    /* SIDEBAR NAVIGATION MENU */
-    nav {
-        width:250px;
-        background:#f1e6c4;
-        border:2px solid #c9b17a;
-        padding:12px;
-        border-radius:4px;
-        box-shadow:0 0 8px rgba(0,0,0,0.1);
-    }
-    nav h3 {
-        margin-top:0;
-        color:#543f1a;
-        text-align:center;
-        border-bottom:2px solid #b08b3c;
-        padding-bottom:6px;
-        font-size:20px;
-    }
-    nav a {
-        display:block;
-        text-decoration:none;
-        color:#3a2f19;
-        padding:6px 4px;
-        border-bottom:1px solid #dfc892;
-    }
-    nav a:hover {
-        background:#e8d7a9;
-        padding-right:10px;
-        transition:0.2s;
-    }
+/* Navigation */
+nav {
+  background: #fff;
+  border-top: 2px solid #c2a444;
+  border-bottom: 2px solid #c2a444;
+}
 
-    /* MAIN CONTENT */
-    main {
-        flex:1;
-        background:#fff9e6;
-        padding:22px;
-        border:2px solid #c7ab71;
-        border-radius:4px;
-        box-shadow:0 0 8px rgba(0,0,0,0.07);
-    }
-    main h1 {
-        text-align:center;
-        margin-top:0;
-        color:#5a461c;
-        font-size:28px;
-        border-bottom:2px solid #c8a662;
-        padding-bottom:10px;
-    }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
 
-    /* FOOTER */
-    footer {
-        margin-top:35px;
-        background:#ebe1c8;
-        border-top:3px solid #b89a52;
-        text-align:center;
-        padding:12px;
-        font-size:14px;
-        color:#5a4c2A;
-    }
+nav ul li {
+  position: relative;
+  border-right: 1px solid #e0d8a0;
+}
+
+nav ul li:last-child {
+  border-right: none;
+}
+
+nav ul li a {
+  display: block;
+  padding: 14px 22px;
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+nav ul li:hover {
+  background: #f3f0e2;
+}
+
+/* Dropdown */
+nav ul li ul.dropdown {
+  display: block;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #d9c57a;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+nav ul li:hover ul.dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+nav ul li ul.dropdown li {
+  border-bottom: 1px solid #eee1b5;
+}
+
+nav ul li ul.dropdown li:last-child {
+  border-bottom: none;
+}
+
+nav ul li ul.dropdown li a {
+  padding: 12px 16px;
+  font-size: 15px;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+nav ul li ul.dropdown li a:hover {
+  background: #f8f6ea;
+}
+
+/* Layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Main */
+main {
+  flex: 3;
+  padding-right: 20px;
+}
+
+/* Sidebar */
+.right-sidebar {
+  flex: 1;
+  width: 320px;
+  font-family: "Cormorant Garamond", serif;
+  color: #3e2d20;
+}
+
+/* Panels and UI elements remain ORIGINAL */
+.panel {
+  background: linear-gradient(180deg,#fbf7ef,#f3e9d6);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.search { display:flex; gap:8px; align-items:center; }
+.search input {
+  flex:1; border-radius:8px; border:1px solid rgba(0,0,0,.08);
+  padding:8px 10px; background: rgba(255,255,255,0.9); font-size:14px;
+}
+.search button {
+  border:0; background:#6d4c2f; color:#fff; padding:8px 10px;
+  border-radius:8px; cursor:pointer; font-family:inherit;
+}
+
+.section-title {
+  font-family:"Cinzel", serif;font-weight:400;color:#5b3a29;
+  font-size:14px;margin-bottom:8px;letter-spacing:.6px;
+}
+
+.badges{display:flex;flex-wrap:wrap;gap:8px;}
+.badge{
+  padding:6px 12px;border-radius:999px;background:linear-gradient(135deg,#d4a44b,#b48838);
+  color:#fff;text-decoration:none;font-size:13px;box-shadow:0 4px 10px rgba(0,0,0,0.12);
+}
+.badge:hover{transform:translateY(-3px);transition:.18s;}
+
+.quote {
+  font-style:italic;color:#3b2a1a;background:linear-gradient(180deg,#fffaf0,#f6ecd6);
+  border-radius:8px;padding:12px;border:1px solid rgba(0,0,0,0.06);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);font-size:14px;line-height:1.45;
+}
+.small {font-size:13px;color:#6b4f3a;margin-top:8px;}
+.source-link {
+  display:inline-block;margin-top:8px;padding:6px 10px;font-size:13px;
+  background:#6d4c2f;color:#fff;border-radius:6px;text-decoration:none;font-weight:bold;
+}
+.source-link:hover {background:#8a6543;}
 </style>
-</head>
 
+</head>
 
 <body>
 
+<!-- ============ BANNER + WEBSITE NAME ============ -->
 <header>
-    <img src="https://raw.githubusercontent.com/millahibrahim148-ops/al-majeedah-org/d991a511f7d44c29627b0d73541ad21ecf28c2ac/icon,%20images%20%26%20misc/banner.png" alt="Banner">
+  <img class="site-logo" src="https://raw.githubusercontent.com/millahibrahim148-ops/al-majeedah-org/d991a511f7d44c29627b0d73541ad21ecf28c2ac/icon,%20images%20%26%20misc/banner.png" alt="">
 </header>
 
-<div class="wrapper">
-
-<!-- Sidebar Menu / Right-to-Left but visually LEFT -->
+<!-- ============ NAVIGATION ============ -->
 <nav>
-    <h3>القائمة</h3>
-    <a href="#">الرئيسية</a>
-    <a href="#">الفتاوى</a>
-    <a href="#">المقالات</a>
-    <a href="#">الكتب</a>
-    <a href="#">إتصل بنا</a>
+  <ul>
+    <li><a href="#">الرئيسية</a></li>
+    <li><a href="#">الفتاوى</a></li>
+    <li><a href="#">الدروس</a></li>
+    <li><a href="#">المقالات</a></li>
+    <li><a href="#">اتصل بنا</a></li>
+  </ul>
 </nav>
 
-<main>
-    <h1>أحدث الفتاوى</h1>
-    <p>
-        بسم الله الرحمن الرحيم، الحمد لله والصلاة والسلام على رسول الله، وعلى آله وصحبه ومن والاه.
-        هذا مثال على المحتوى الرئيسي للفتاوى، ويمكنك إضافة النصوص، الروابط، الأدلة الشرعية،
-        ونقاط البحث هنا. التصميم يحاكي الطابع التقليدي للموسوعات القديمة.
-    </p>
+<!-- ============ PAGE CONTENT ============ -->
+<div class="container">
 
-    <p>
-        <strong>➤ مثال فتوى:</strong><br>
-        حكم استعمال كذا وكذا… <br>
-        الجواب هنا…
-    </p>
-</main>
+  <main>
+    <h2>مرحبا بكم في موقع المجيدة</h2>
+    <p>هذا هو النص التجريبي ويمكن استبداله لاحقا.</p>
+  </main>
 
-</div> <!-- wrapper -->
+  <aside class="right-sidebar">
 
-<footer>
-    جميع الحقوق محفوظة © 1447 هـ – موقع الفتاوى
-</footer>
+    <div class="panel">
+      <div class="section-title">🔍 بحث</div>
+      <div class="search">
+        <input type="text" placeholder="ابحث هنا...">
+        <button>بحث</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="section-title">التصنيفات</div>
+      <div class="badges">
+        <a class="badge" href="#">فقه</a>
+        <a class="badge" href="#">عقيدة</a>
+        <a class="badge" href="#">حديث</a>
+        <a class="badge" href="#">سيرة</a>
+      </div>
+    </div>
+
+  </aside>
+</div>
 
 </body>
 </html>
