@@ -1,219 +1,157 @@
-/* General */
+/* ======================
+   GLOBAL TYPOGRAPHY
+====================== */
 body {
   margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  background: #faf9f5;
-  color: #222;
-  line-height: 1.6;
+  background: #f7f5ef;
+  color: #2b271f;
+  line-height: 1.9;
+
+  /* Arabic Qurʾanic Font */
+  font-family: "Amiri Quran", "Scheherazade New", serif;
 }
 
-/* Header */
+p, li, a, .quote, .panel { 
+  font-family: "Scheherazade New", serif;
+  font-size: 20px;
+}
+
+/* English fallback */
+html[lang="en"] body { 
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* ======================
+   HEADER & BANNER
+====================== */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   background: #0f3d2e;
-  padding: 15px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 110px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  padding: 0;
+  text-align: center;
+  border-bottom: 3px solid #b49644;
 }
 
 .site-logo {
-  height: 85px;
-  max-width: 360px;
+  height: 110px;
   object-fit: contain;
+  display: block;
+  margin: auto;
 }
 
-/* Navigation */
+/* ======================
+   NAVIGATION MENU
+====================== */
 nav {
-  background: #fff;
+  background: #ffffff;
   border-top: 2px solid #c2a444;
   border-bottom: 2px solid #c2a444;
 }
 
 nav ul {
-  list-style: none;
   margin: 0;
-  padding: 0;
   display: flex;
+  padding: 0;
+  list-style: none;
   justify-content: center;
 }
 
 nav ul li {
-  position: relative;
-  border-right: 1px solid #e0d8a0;
+  border-right: 1px solid #e6d8a3;
 }
 
-nav ul li:last-child {
-  border-right: none;
-}
+nav ul li:last-child { border-right: none; }
 
 nav ul li a {
   display: block;
   padding: 14px 22px;
   text-decoration: none;
-  color: #222;
-  font-size: 16px;
-  font-weight: 400;
+  color: #333;
+  font-size: 19px;
 }
 
-nav ul li:hover {
-  background: #f3f0e2;
-}
+nav ul li:hover { background: #f3f0e0; }
 
-/* Dropdown */
-nav ul li ul.dropdown {
-  display: block;
-  position: absolute;
-  background: #fff;
-  border: 1px solid #d9c57a;
-  min-width: 220px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-  z-index: 999;
-}
-
-nav ul li:hover ul.dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-nav ul li ul.dropdown li {
-  border-bottom: 1px solid #eee1b5;
-}
-
-nav ul li ul.dropdown li:last-child {
-  border-bottom: none;
-}
-
-nav ul li ul.dropdown li a {
-  padding: 12px 16px;
-  font-size: 15px;
-  display: block;
-  transition: background 0.2s ease;
-}
-
-nav ul li ul.dropdown li a:hover {
-  background: #f8f6ea;
-}
-
-/* Layout */
+/* ======================
+   PAGE LAYOUT
+====================== */
 .container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  padding: 25px;
+  gap: 25px;
 }
 
-/* Main */
 main {
   flex: 3;
-  padding-right: 20px;
 }
 
-/* Sidebar */
+main h1 {
+  font-size: 30px;
+  border-bottom: 2px solid #b89a52;
+  padding-bottom: 6px;
+  margin-bottom: 15px;
+}
+
+/* ======================
+   SIDEBAR PANELS
+====================== */
 .right-sidebar {
   flex: 1;
-  width: 320px;
-  font-family: "Cormorant Garamond", serif;
-  color: #3e2d20;
 }
 
 .panel {
-  background: linear-gradient(180deg,#fbf7ef,#f3e9d6);
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.search {
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.search input {
-  flex:1;
-  border-radius:8px;
-  border:1px solid rgba(0,0,0,.08);
-  padding:8px 10px;
-  background: rgba(255,255,255,0.9);
-  font-size:14px;
-}
-.search button {
-  border:0;
-  background:#6d4c2f;
-  color:#fff;
-  padding:8px 10px;
-  border-radius:8px;
-  cursor:pointer;
-  font-family:inherit;
+  background: #fbf7ef;
+  border: 1px solid #c7b083;
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+  margin-bottom: 18px;
 }
 
 .section-title {
-  font-family: "Cinzel", serif;
-  font-weight:400;
-  color:#5b3a29;
-  font-size:14px;
-  margin-bottom:8px;
-  letter-spacing:.6px;
+  font-family: "Amiri Quran";
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
-.badges {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
+.search {
+  display:flex; gap:8px;
 }
 
+.search input {
+  flex:1; padding:8px;
+  border-radius:6px; border:1px solid #c9b48d;
+}
+
+.search button {
+  background:#6d4c2f; color:#fff;
+  border:0; border-radius:6px;
+  padding:8px 12px; cursor:pointer;
+}
+
+/* TAGS */
+.badges { display:flex; flex-wrap:wrap; gap:8px; }
 .badge {
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:999px;
-  background:linear-gradient(135deg,#d4a44b,#b48838);
-  color:#fff;
-  text-decoration:none;
-  font-size:13px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  background:#d4a44b; color:#fff;
+  padding:6px 12px; border-radius:50px;
+  font-size:17px; text-decoration:none;
 }
-.badge:hover {
-  transform:translateY(-3px);
-  transition:transform .18s ease;
-}
+.badge:hover { opacity:0.85; }
 
+/* QURAN QUOTE */
 .quote {
-  font-style:italic;
-  color:#3b2a1a;
-  background: linear-gradient(180deg,#fffaf0,#f6ecd6);
-  border-radius:8px;
+  background:#fffaf0;
+  border-right:4px solid #b89548;
+  padding:14px;
+  font-size:26px;
+  font-family: "Amiri Quran";
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  background:#ebe3c9;
   padding:12px;
-  border:1px solid rgba(0,0,0,0.06);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
-  font-size:14px;
-  line-height:1.45;
+  margin-top:25px;
+  font-size:16px;
+  border-top:3px solid #b49644;
 }
-
-.small {
-  font-size:13px;
-  color:#6b4f3a;
-  margin-top:8px;
-}
-
-.source-link {
-  display:inline-block;
-  margin-top:8px;
-  padding:6px 10px;
-  font-size:13px;
-  background:#6d4c2f;
-  color:#fff;
-  border-radius:6px;
-  text-decoration:none;
-  font-weight:bold;
-}
-.source-link:hover { background:#8a6543; }
