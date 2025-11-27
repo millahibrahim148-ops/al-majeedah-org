@@ -16,25 +16,43 @@
       line-height: 1.6;
     }
 
-    /* Header */
+    /* Header — modified as requested */
     header {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 25px;
       padding: 35px 20px;
       background: linear-gradient(180deg, #fdfbf6, #f2e9d8);
       border-bottom: 1px solid #c8b48c;
       box-shadow: inset 0 2px 6px rgba(255,255,255,0.7), 0 3px 10px rgba(0,0,0,0.15);
     }
+
     header img {
-      max-width: 550px; /* resized as requested */
+      max-width: 420px; /* shrunk slightly */
       border-radius: 8px;
       display: block;
-      margin: 0 auto 12px;
     }
 
-    header p {
-      font-size: 16px;
+    /* Vertical dividing line */
+    .divider {
+      width: 2px;
+      background: #c8b48c;
+      height: 120px;
+    }
+
+    /* Header Text Block */
+    .header-info {
+      font-family: "Amiri", serif;
+      color: #3a2b1a;
+    }
+    .header-info h1 {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+    .header-info p {
+      font-size: 17px;
       color: #5c4b36;
-      margin-top: 8px;
     }
 
     /* Layout */
@@ -94,7 +112,6 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.08);
     }
 
-    /* 🔥 new ilm-grid replacing Beginner section – same theme style kept */
     .ilm-grid {
       display: grid;
       grid-template-columns: repeat(3,1fr);
@@ -133,15 +150,20 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER MODIFIED -->
   <header>
     <img src="https://github.com/millahibrahim148-ops/al-majeedah-org/blob/50727093387487518b1fc32f266ae776b60d42bf/icon%2C%20images%20%26%20misc/1127(1).gif?raw=true">
+
+    <div class="divider"></div>
+
+    <div class="header-info">
+      <h1>al-majeedah.org</h1>
+      <p>Islam • Sunnah • Salafiyyah<br>Upon the Methodology of the Salaf</p>
+    </div>
   </header>
 
-  <!-- PAGE WRAPPER -->
   <div class="container">
 
-    <!-- SIDEBAR -->
     <aside>
       <h3>Navigation</h3>
       <div class="sidebar-links">
@@ -153,20 +175,16 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
     <main>
-
-      <!-- 🔥 Replacement for Beginner [+] -->
       <div class="ilm-grid">
         <div class="ilm-item">Foundations of Seeking Knowledge</div>
         <div class="ilm-item">Adab & Manners of the Student</div>
         <div class="ilm-item">Books & Path of Study</div>
       </div>
-
     </main>
+
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Al-Majeedah. All rights reserved.</p>
   </footer>
